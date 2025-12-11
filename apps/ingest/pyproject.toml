@@ -1,0 +1,18 @@
+[project]
+name = "ingest"
+version = "1.0.0"
+description = "Add your description here"
+requires-python = ">=3.13"
+authors = [
+    { name = "Haruna Musoke", email = "musokeharuna90@gmail.com" },
+]
+readme = "README.md"
+
+[project.scripts]
+ingest = "ingest.__main__:main"
+
+[project.urls]
+repository = "https://github.com/yotv-aardvark/outpost-trench.git"
+issues = "https://github.com/yotv-aardvark/outpost-trench/issues"
+
+dependencies = []
