@@ -1,24 +1,15 @@
-"""Main module for the application."""
+"""Server module for the application."""
 
-import argparse
-import sys
+from fastapi import FastAPI
+import inngest.fast_api
 
+from core.workflows.client import inngest_client
+from core.workflows.workflow_hello_world import hello_world
+from core.workflows.workflow_sync_systems import sync_systems
 
-def main() -> None:
-    """Generate and print a Fibonacci sequence based on command line arguments."""
+app = FastAPI()
 
-    parser = argparse.ArgumentParser(
-        prog="ingest",
-        description="Generate a Fibonacci sequence up to the given number of terms",
-    )
-
-    parser.add_argument("-v", "--version", action="version", version="0.0.0")
-    parser.add_argument("n", type=int, help="The number of terms")
-    args = parser.parse_args()
-
-    # sequence = fibonacci_sequence(args.n)
-    sys.stdout.write(args)
-
-
-if __name__ == "__main__":
-    main()
+inngest.fast_api.serve(app, inngest_client, [
+    hello_world,
+    sync_systems
+])

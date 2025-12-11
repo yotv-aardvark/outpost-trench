@@ -7,9 +7,15 @@ authors = [
     { name = "Haruna Musoke", email = "musokeharuna90@gmail.com" },
 ]
 readme = "README.md"
+dependencies = [
+    "fastapi>=0.124.2",
+    "inngest>=0.5.13",
+    "uvicorn>=0.38.0",
+]
 
 [project.scripts]
-ingest = "ingest.__main__:main"
+ingest = "ingest.__main__:app"
+cli = "ingest_cli.__main__:main"
 
 [project.urls]
 repository = "https://github.com/yotv-aardvark/outpost-trench.git"
@@ -28,9 +34,6 @@ source = ["ingest"]
 
 [tool.hatch.build.targets.sdist]
 include = ["src"]
-
-dependencies = [
-]
 
 [dependency-groups]
 dev = [
