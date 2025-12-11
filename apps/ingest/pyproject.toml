@@ -15,4 +15,24 @@ ingest = "ingest.__main__:main"
 repository = "https://github.com/yotv-aardvark/outpost-trench.git"
 issues = "https://github.com/yotv-aardvark/outpost-trench/issues"
 
-dependencies = []
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.coverage.report]
+fail_under = 100
+omit = ["__main__.py"]
+
+[tool.coverage.run]
+source = ["ingest"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src"]
+
+dependencies = [
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]
